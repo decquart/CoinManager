@@ -5,7 +5,9 @@ namespace DataAccessLayer.Entities
 {
     public class Wallet
     {
-        ICollection<Income> Incomes { get; set; }
-        ICollection<Expense> Expenses { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public ICollection<Income> Incomes { get; set; }
+        public ICollection<Expense> Expenses { get; set; }
     }
 }
