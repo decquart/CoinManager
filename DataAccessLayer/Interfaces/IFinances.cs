@@ -1,9 +1,12 @@
-﻿namespace DataAccessLayer.Interfaces
+﻿using System;
+
+namespace DataAccessLayer.Interfaces
 {
-    interface IFinances
+    interface IFinances <TICategory> where TICategory: ICategory
     {
         double Sum { get; }
         string Comment { get; set; }
-        ICategory category { get; set; }
+        TICategory category { get; set; }
+        DateTime OperationTime { get; set; }
     }
 }
