@@ -1,6 +1,6 @@
 ﻿namespace DataAccessLayer.Interfaces
 {
-    interface ICategory
+    public interface ICategory
     {
         string Name { get; set; }
     }

@@ -2,7 +2,7 @@
 
 namespace DataAccessLayer.Interfaces
 {
-    interface IFinances <TICategory> where TICategory: ICategory
+    public interface IFinances <TICategory> where TICategory: ICategory
     {
         double Sum { get; }
         string Comment { get; set; }
