@@ -9,5 +9,10 @@ namespace DataAccessLayer.Entities
         public string Name { get; set; }
 
         public ICollection<Expense> Expenses { get; set; }
+
+        public ExpenseCategory()
+        {
+            Expenses = new List<Expense>();
+        }
     }
 }
