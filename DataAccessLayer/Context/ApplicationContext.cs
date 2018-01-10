@@ -29,7 +29,7 @@ namespace DataAccessLayer.Context
     {
         protected override void Seed(ApplicationContext db)
         {
-            db.Wallets.Add(new Wallet { Id = 1, Name = "Main Wallet"});            
+            db.Wallets.Add(new Wallet { Name = "Main Wallet"});            
             db.SaveChanges();
         }
     }
