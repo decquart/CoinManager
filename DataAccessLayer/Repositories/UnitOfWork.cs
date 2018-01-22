@@ -14,6 +14,11 @@ namespace DataAccessLayer.Repositories
         private IncomeCategoryRepository incomeCategoryRepository;
         private ExpenseCategoryRepository expenseCategoryRepository;
 
+        public UnitOfWork(string connectionString)
+        {
+            db = new ApplicationContext(connectionString);
+        }
+
         public IRepository<Wallet> Wallets
         {
             get
@@ -65,6 +70,11 @@ namespace DataAccessLayer.Repositories
             }
         }
 
+        public void Save()
+        {
+            db.SaveChanges();
+        }
+
         private bool disposed = false;
 
         public virtual void Dispose(bool disposing)
@@ -76,11 +86,11 @@ namespace DataAccessLayer.Repositories
                 this.disposed = true;
             }
         }
-
+        
         public void Dispose()
         {
             Dispose(true);
             GC.SuppressFinalize(this);
-        }
+        }        
     }
 }
