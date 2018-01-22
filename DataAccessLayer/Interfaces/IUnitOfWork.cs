@@ -8,7 +8,7 @@ namespace DataAccessLayer.Interfaces
         IRepository<Wallet> Wallets { get; }
         IRepository<Income> Incomes { get; }
         IRepository<Expense> Expenses { get; }
-        IRepository<ExpenseCategory> ExoenseCategories{ get; }
+        IRepository<ExpenseCategory> ExpenseCategories{ get; }
         IRepository<IncomeCategory> IncomeCategories{ get; }
 
         void Save();
