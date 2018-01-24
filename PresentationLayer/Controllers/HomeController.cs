@@ -1,4 +1,8 @@
-﻿using System;
+﻿using AutoMapper;
+using BusinessLogicLayer.DTO;
+using BusinessLogicLayer.Interfaces;
+using PresentationLayer.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,23 +12,25 @@ namespace PresentationLayer.Controllers
 {
     public class HomeController : Controller
     {
+        IWalletService walletService;
+
+        public HomeController(IWalletService service)
+        {
+            walletService = service;
+        }
+
         public ActionResult Index()
         {
-            return View();
+            var walletDTO = walletService.GetWallets();
+            Mapper.Initialize(cfg => cfg.CreateMap<WalletDTO, WalletViewModel>());
+            var wallet = Mapper.Map<IEnumerable<WalletDTO>, List<WalletViewModel>>(walletDTO);
+            return View(wallet);
         }
 
-        public ActionResult About()
+        protected override void Dispose(bool disposing)
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            walletService.Dispose();
+            base.Dispose(disposing);
         }
     }
 }
