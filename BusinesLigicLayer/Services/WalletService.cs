@@ -31,6 +31,36 @@ namespace BusinessLogicLayer.Services
             db.Save();
         }
 
+        public void CreateExpense(double sum, string comment, DateTime time, int walletId, int expCatId)
+        {
+            var exp = new Expense
+            {
+                Sum = sum,
+                Comment = comment,
+                OperationTime = time,
+                WalletID = walletId,
+                ExpenseCategoryID = expCatId
+            };
+            db.Expenses.Create(exp);
+            AddExpenseToWallet(exp.WalletID, exp.Id);
+            db.Save();
+        }
+
+        public void CreateIncome(double sum, string comment, DateTime time, int walletId, int incCatId)
+        {
+            var inc = new Income
+            {
+                Sum = sum,
+                Comment = comment,
+                OperationTime = time,
+                WalletID = walletId,
+                IncomeCategoryID = incCatId
+            };
+            db.Incomes.Create(inc);
+            AddIncomeToWallet(inc.WalletID, inc.Id);
+            db.Save();
+        }
+
         #endregion
 
         #region read
@@ -68,6 +98,24 @@ namespace BusinessLogicLayer.Services
 
             return mapper.Map<IEnumerable<Income>, List<IncomeDTO>>(db.Incomes
                 .Find(t => t.WalletID.Equals(walletId)));
+        }
+
+        public IEnumerable<ITransaction> GetTransactions()
+        {
+            var exp = db.Expenses.GetAll().ToList();
+            var inc = db.Incomes.GetAll().ToList();
+            List<ITransaction> transaction = new List<ITransaction>();
+
+            foreach (var e in exp)
+            {
+                transaction.Add(e);
+            }
+
+            foreach (var i in inc)
+            {
+                transaction.Add(i);
+            }
+            return transaction;
         }
 
         public double GetCurrentBalance()
@@ -187,5 +235,7 @@ namespace BusinessLogicLayer.Services
         {
             db.Dispose();
         }
+
+       
     }
 }

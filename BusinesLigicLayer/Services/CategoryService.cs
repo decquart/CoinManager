@@ -43,15 +43,13 @@ namespace BusinessLogicLayer.Services
         //read
         public IEnumerable<ExpenseCategoryDTO> GetAllExpensesCategories()
         {
-            Mapper.Initialize(cfg => cfg.CreateMap<ExpenseCategory, ExpenseCategoryDTO>());
-            return Mapper.Map<IEnumerable<ExpenseCategory>, List<ExpenseCategoryDTO>>(db
+            return mapper.Map<IEnumerable<ExpenseCategory>, List<ExpenseCategoryDTO>>(db
                 .ExpenseCategories.GetAll());
         }
 
         public IEnumerable<IncomeCategoryDTO> GetAllIncomesCategories()
         {
-            Mapper.Initialize(cfg => cfg.CreateMap<IncomeCategory, IncomeCategoryDTO>());
-            return Mapper.Map<IEnumerable<IncomeCategory>, List<IncomeCategoryDTO>>(db
+            return mapper.Map<IEnumerable<IncomeCategory>, List<IncomeCategoryDTO>>(db
                 .IncomeCategories.GetAll());
         }
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using BusinessLogicLayer.DTO;
+using DataAccessLayer.Interfaces;
 
 namespace BusinessLogicLayer.Interfaces
 {
@@ -8,12 +9,15 @@ namespace BusinessLogicLayer.Interfaces
     {
         //create
         void CreateWallet(string name, double balance);
+        void CreateExpense(double sum, string comment, DateTime time, int walletId, int expCatId);
+        void CreateIncome(double sum, string comment, DateTime time, int walletId, int incCatId);
 
         //read
         IEnumerable<WalletDTO> GetWallets();
         WalletDTO GetWallet(int walletId);
         IEnumerable<ExpenseDTO> GetExpenses(int walletId);
         IEnumerable<IncomeDTO> GetIncomes(int walletId);
+        IEnumerable<ITransaction>  GetTransactions();        
         double GetCurrentBalance();
 
         //update
