@@ -2,11 +2,10 @@
 
 namespace DataAccessLayer.Interfaces
 {
-    public interface IFinances <TICategory> where TICategory: ICategory
+    public interface ITransaction 
     {
         double Sum { get; }
         string Comment { get; set; }
-        TICategory category { get; set; }
         DateTime OperationTime { get; set; }
     }
 }

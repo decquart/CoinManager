@@ -56,7 +56,7 @@
     <Compile Include="Entities\IncomeCategory.cs" />
     <Compile Include="Entities\Wallet.cs" />
     <Compile Include="Interfaces\ICategory.cs" />
-    <Compile Include="Interfaces\IFinances.cs" />
+    <Compile Include="Interfaces\ITransaction.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

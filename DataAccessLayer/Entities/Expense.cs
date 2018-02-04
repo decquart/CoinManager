@@ -3,7 +3,7 @@ using System;
 
 namespace DataAccessLayer.Entities
 {
-    public class Expense : IFinances<ExpenseCategory>
+    public class Expense : ITransaction
     {
         public int Id { get; set; }
         public double Sum { get; set; }

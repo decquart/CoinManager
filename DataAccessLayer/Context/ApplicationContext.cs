@@ -30,15 +30,23 @@ namespace DataAccessLayer.Context
     {
         protected override void Seed(ApplicationContext db)
         {
-            //db.ExpenseCategories.Add(new ExpenseCategory { Id = 1, Name = "Food"});
-            //db.IncomeCategories.Add(new IncomeCategory { Id = 1, Name = "Salary" });
-            //db.Incomes.Add(new Income {Id = 1, Sum = 100, category = db.IncomeCategories.Find(1), Comment = "Sale", OperationTime = DateTime.Now } );
-            //db.Expenses.Add(new Expense { Id = 1, Sum = 200, category = db.ExpenseCategories.Find(1), Comment = "some food", OperationTime = DateTime.Now});
-            db.Wallets.Add(new Wallet { Id = 1, Name = "Main Wallet", Balance = 0 });
-            //var exp = db.Expenses.Find(1);
-            //var inc = db.Incomes.Find(1);
-            //db.Wallets.Find(1).Expenses.Add(exp);
-            //db.Wallets.Find(1).Incomes.Add(inc);
+            
+            db.Wallets.Add(new Wallet { Name = "Cash", Balance = 0 });
+            
+            //category  initialisation
+            db.ExpenseCategories.Add(new ExpenseCategory { Name = "Food" });
+            db.ExpenseCategories.Add(new ExpenseCategory { Name = "Leisure" });
+            db.ExpenseCategories.Add(new ExpenseCategory { Name = "Health" });
+            db.ExpenseCategories.Add(new ExpenseCategory { Name = "Transport" });
+            db.ExpenseCategories.Add(new ExpenseCategory { Name = "Gifts" });
+            db.ExpenseCategories.Add(new ExpenseCategory { Name = "Clothes" });
+            db.ExpenseCategories.Add(new ExpenseCategory { Name = "Shopping" });
+
+            db.IncomeCategories.Add(new IncomeCategory { Name = "Salary" });
+            db.IncomeCategories.Add(new IncomeCategory { Name = "Additional income" });
+
+            db.Expenses.Add(new Expense { Sum = 50, Comment = "this is test comment", OperationTime = DateTime.Now, ExpenseCategoryID = 1 });
+
             db.SaveChanges();
         }
     }
