@@ -5,13 +5,14 @@ using System.Web;
 
 namespace PresentationLayer.Models
 {
-    public class IncomeViewModel
+    public class ExpenseModel
     {
+        public int Id { get; set; }
         public double Sum { get; set; }
         public string Comment { get; set; }
-        public DateTime Time { get; set; }
+        public DateTime OperationTime { get; set; }
 
-        public int WalletId { get; set; }
-        public int IncomeCategoryID { get; set; }
+        public int WalletID { get; set; }
+        public int ExpenseCategoryID { get; set; }
     }
 }

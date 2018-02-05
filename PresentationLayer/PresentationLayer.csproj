@@ -164,17 +164,19 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Context\WalletContext.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\WalletModelsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\ExpenseCategoryViewModel.cs" />
-    <Compile Include="Models\ExpenseViewModel.cs" />
-    <Compile Include="Models\IncomeCategoryViewModel.cs" />
-    <Compile Include="Models\IncomeViewModel.cs" />
-    <Compile Include="Models\WalletViewModel.cs" />
+    <Compile Include="Models\ExpenseCategoryModel.cs" />
+    <Compile Include="Models\ExpenseModel.cs" />
+    <Compile Include="Models\IncomeCategoryModel.cs" />
+    <Compile Include="Models\IncomeModel.cs" />
+    <Compile Include="Models\WalletModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Util\WalletModule.cs" />
+    <Compile Include="Util\NinjectDependencyResolver.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -210,6 +212,11 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\WalletModels\Create.cshtml" />
+    <Content Include="Views\WalletModels\Delete.cshtml" />
+    <Content Include="Views\WalletModels\Details.cshtml" />
+    <Content Include="Views\WalletModels\Edit.cshtml" />
+    <Content Include="Views\WalletModels\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -231,6 +238,10 @@
     <ProjectReference Include="..\BusinesLigicLayer\BusinesLigicLayer.csproj">
       <Project>{f9ca070c-5325-4b58-b478-88d057da2c0c}</Project>
       <Name>BusinesLigicLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
+      <Project>{CDDE05AE-39CD-445F-A167-68CF6D313E32}</Project>
+      <Name>DataAccessLayer</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

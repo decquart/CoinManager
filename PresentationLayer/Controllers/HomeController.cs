@@ -1,36 +1,21 @@
-﻿using AutoMapper;
-using BusinessLogicLayer.DTO;
+﻿using BusinessLogicLayer.Infrastructure;
 using BusinessLogicLayer.Interfaces;
-using PresentationLayer.Models;
-using System;
-using System.Collections.Generic;
+using BusinessLogicLayer.DTO;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
+using System;
+using AutoMapper;
+using System.Collections.Generic;
+using System.Collections;
+using PresentationLayer.Models;
 
 namespace PresentationLayer.Controllers
 {
     public class HomeController : Controller
-    {
-        IWalletService walletService;
-
-        public HomeController(IWalletService service)
-        {
-            walletService = service;
-        }
-
+    {    
         public ActionResult Index()
         {
-            var walletDTO = walletService.GetWallets();
-            Mapper.Initialize(cfg => cfg.CreateMap<WalletDTO, WalletViewModel>());
-            var wallet = Mapper.Map<IEnumerable<WalletDTO>, List<WalletViewModel>>(walletDTO);
-            return View(wallet);
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            walletService.Dispose();
-            base.Dispose(disposing);
-        }
+            return View();
+        }        
     }
 }
