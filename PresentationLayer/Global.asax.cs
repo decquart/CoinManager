@@ -19,11 +19,10 @@ namespace PresentationLayer
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            NinjectModule module = new Util.NinjectDependencyResolver();
+            NinjectModule module = new NinjectRegistrations();
             NinjectModule serviceModule = new ServiceModule("DefaultConnection");
             var kernel = new StandardKernel(module, serviceModule);
-            DependencyResolver.SetResolver(new Ninject.Web.Mvc.NinjectDependencyResolver(kernel));
-
+            DependencyResolver.SetResolver(new NinjectDependencyResolver(kernel));
         }
     }
 }
