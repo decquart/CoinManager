@@ -24,10 +24,10 @@ namespace BusinessLogicLayer.Services
         }
 
         #region create
-       public void CreateWallet(string name, double balance)
+       public void CreateWallet(WalletDTO walletDTO)
         {
-            var wallet = new Wallet { Name = name, Balance = balance };
-            db.Wallets.Create(wallet);
+            var _wallet = mapper.Map<WalletDTO, Wallet>(walletDTO);
+            db.Wallets.Create(_wallet);
             db.Save();
         }
 
@@ -199,13 +199,13 @@ namespace BusinessLogicLayer.Services
             }
         }
 
-        public void ChangeWalletName(int walletId, string name)
+        public void ChangeWalletName(WalletDTO walletDTO)
         {
-            var wallet = db.Wallets.Get(walletId);
+            var wallet = db.Wallets.Get(walletDTO.Id);
 
             if (wallet != null)
             {
-                wallet.Name = name;
+                wallet.Name = walletDTO.Name;
                 db.Wallets.Update(wallet);
                 db.Save();
             }

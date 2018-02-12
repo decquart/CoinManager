@@ -8,8 +8,8 @@ namespace BusinessLogicLayer.Interfaces
     public interface ICategoryService
     {
         //create
-        void CreateIncomeCategory(string name);
-        void CreateExpenseCategory(string name);
+        void CreateIncomeCategory(IncomeCategoryDTO incomeCategory);
+        void CreateExpenseCategory(ExpenseCategoryDTO expenseCategory);
 
         //read
         IEnumerable<ExpenseCategoryDTO> GetAllExpensesCategories();

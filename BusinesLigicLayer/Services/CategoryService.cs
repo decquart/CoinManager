@@ -24,18 +24,16 @@ namespace BusinessLogicLayer.Services
         }
         
         //create       
-        public void CreateExpenseCategory(string name)
+        public void CreateExpenseCategory(ExpenseCategoryDTO expenseCategory)
         {
-            var expCat = new ExpenseCategory { Name = name };
-            db.ExpenseCategories.Create(expCat);
+            db.ExpenseCategories.Create(mapper.Map<ExpenseCategoryDTO, ExpenseCategory>(expenseCategory));
             db.Save();
 
         }
 
-        public void CreateIncomeCategory(string name)
+        public void CreateIncomeCategory(IncomeCategoryDTO incomeCategory)
         {
-            var incCat = new IncomeCategory{ Name = name };
-            db.IncomeCategories.Create(incCat);
+            db.IncomeCategories.Create(mapper.Map<IncomeCategoryDTO, IncomeCategory>(incomeCategory));
             db.Save();
         }
 

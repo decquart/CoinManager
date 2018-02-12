@@ -35,8 +35,11 @@ namespace BusinessLogicLayer.Infrastructure
             var config = new MapperConfiguration(cfg =>
             {
                 cfg.CreateMap<Wallet, WalletDTO>();
+                cfg.CreateMap<WalletDTO, Wallet>();
                 cfg.CreateMap<Expense, ExpenseDTO>();
+                cfg.CreateMap<ExpenseDTO, Expense>();
                 cfg.CreateMap<Income, IncomeDTO>();
+                cfg.CreateMap<IncomeDTO, Income>();
                 cfg.CreateMap<ExpenseCategory, ExpenseCategoryDTO>();
                 cfg.CreateMap<IncomeCategory, IncomeCategoryDTO>();
             });
