@@ -6,7 +6,7 @@ using System.Web;
 
 namespace PresentationLayer.Context
 {
-    public class WalletContext : DbContext
+    public class ExpenseContext : DbContext
     {
         // You can add custom code to this file. Changes will not be overwritten.
         // 
@@ -15,9 +15,10 @@ namespace PresentationLayer.Context
         // For more information refer to the documentation:
         // http://msdn.microsoft.com/en-us/data/jj591621.aspx
     
-        public WalletContext() : base("name=WalletContext")
+        public ExpenseContext() : base("name=ExpenseContext")
         {
         }
-    
+
+        public System.Data.Entity.DbSet<PresentationLayer.Models.ExpenseModel> ExpenseModels { get; set; }
     }
 }
