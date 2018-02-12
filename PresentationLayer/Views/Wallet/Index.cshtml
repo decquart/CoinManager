@@ -1,14 +1,14 @@
 ﻿@model IEnumerable<PresentationLayer.Models.WalletModel>
 
 @{
-    ViewBag.Title = "Accounts";
+    ViewBag.Title = "Your accounts";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Add new account", "Create")
 </p>
 <table class="table">
     <tr>
@@ -30,7 +30,7 @@
             @Html.DisplayFor(modelItem => item.Name)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Rename", "Edit", new { id=item.Id }) |
             @Html.ActionLink("Details", "Details", new { id=item.Id }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.Id })
         </td>
